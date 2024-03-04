@@ -9,26 +9,32 @@ namespace RMS
     public abstract  class Trade
     {
         protected decimal _price;
-        protected decimal _stoploss;
-        protected decimal _target;
+        protected decimal _stoplossPrice;
+        protected decimal _targetPrice;
         protected decimal _risk;
         protected decimal _minimumRisk;
-        protected decimal _MaximumRisk;
+        protected decimal _minimumReward;
+        protected decimal _maximumRisk;
+        protected decimal _maximumReward;
         protected decimal _reward;
         protected string? _note;
 
-        public  Trade(decimal price, decimal stoploss, decimal target, decimal minimumRisk, decimal maximumRisk, string? note)
+        public  Trade(decimal price, decimal stoploss, decimal target, decimal minimumRisk, decimal maximumRisk, decimal minimumReward, decimal maximumReward, string? note)
         {
             _price = price;
-            _stoploss = stoploss;
-            _target = target;
+            _stoplossPrice = stoploss;
+            _targetPrice = target;
             _minimumRisk = minimumRisk;
-            _MaximumRisk = maximumRisk;
+            _maximumRisk = maximumRisk;
+            _minimumReward = minimumReward;
+            _maximumReward = maximumReward;
             _note = note;
-            SetRisk();
+            SetRisk(ref _stoplossPrice, ref _risk);
+            SetReward(ref _targetPrice, ref _reward);
         }
 
-        protected abstract void SetRisk();
+        protected abstract void SetRisk(ref decimal _stoplossPrice, ref decimal _risk);
+        protected abstract void SetReward(ref decimal _targetPrice, ref decimal _reward);
         public  decimal Price
         {
             get
@@ -38,30 +44,30 @@ namespace RMS
             set
             {
                 _price= value;
-                SetRisk() ;
+                SetRisk(ref _stoplossPrice, ref _risk);
             }
         }
         public  decimal StopLoss
         {
             get
             {
-                return _stoploss;
+                return _stoplossPrice;
             }
             set
             {
-                _stoploss= value;
-                SetRisk() ;
-            } 
+                _stoplossPrice= value;
+                SetRisk(ref _stoplossPrice, ref _risk);
+            }
         }
         public  decimal Target
         {
             get
             {
-                return _target;
+                return _targetPrice;
             }
             set
             { 
-                _target= value;
+                _targetPrice= value;
             }
         }
         public  decimal MinimumRisk
@@ -73,7 +79,7 @@ namespace RMS
             set
             {
                 _minimumRisk= value;
-                SetRisk() ;
+                SetRisk(ref _stoplossPrice, ref _risk);
             }
         }
         public  decimal MaximumRisk
@@ -85,8 +91,8 @@ namespace RMS
             set
             {
                 _minimumRisk= value;
-                SetRisk() ;
-            } 
+                SetRisk(ref _stoplossPrice, ref _risk);
+            }
         }
         public  decimal Risk 
         {
@@ -115,12 +121,19 @@ namespace RMS
         {
             Console.WriteLine("=====================");
             Console.WriteLine($" Price : " + _price);
-            Console.WriteLine($" StopLoss : " + _stoploss);
-            Console.WriteLine($" Target : " + _target);
-            Console.WriteLine($" Risk : " + _risk);
-            Console.WriteLine($" Reward : " + _reward);
+            Console.WriteLine($" StopLoss : " + _stoplossPrice);
+            Console.WriteLine($" Target : " + _targetPrice);
+
+            Console.WriteLine();
             Console.WriteLine($" MinimumRisk : " + _minimumRisk);
-            Console.WriteLine($" MaximumRisk : " + _MaximumRisk);
+            Console.WriteLine($" Risk : " + _risk);
+            Console.WriteLine($" MaximumRisk : " + _maximumRisk);
+
+            Console.WriteLine();
+            Console.WriteLine($" MinimumReward : " + _minimumReward);
+            Console.WriteLine($" Reward : " + _reward);
+            Console.WriteLine($" MaximumReward : " + _maximumReward);
+            Console.WriteLine();
             Console.WriteLine($" Note : " + _note);
             Console.WriteLine();
 

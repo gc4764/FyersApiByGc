@@ -6,7 +6,7 @@
         {
             Console.WriteLine("Hello, World!");
 
-            LongTrade longTrade = new(100, 80, 120, 5, 15, "test");
+            LongTrade longTrade = new(100, 0, 120, 5, 15,10,30, "test");
 
             longTrade.Printdata();
  
