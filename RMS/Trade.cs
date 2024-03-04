@@ -11,13 +11,15 @@ namespace RMS
         protected decimal _price;
         protected decimal _stoplossPrice;
         protected decimal _targetPrice;
-        protected decimal _risk;
+
         protected decimal _minimumRisk;
-        protected decimal _minimumReward;
+        protected decimal _risk=0;
         protected decimal _maximumRisk;
+
+        protected decimal _minimumReward;
+        protected decimal _reward=0;
         protected decimal _maximumReward;
-        protected decimal _reward;
-        protected string? _note;
+        protected string? _note="Algo";
 
         public  Trade(decimal price, decimal stoploss, decimal target, decimal minimumRisk, decimal maximumRisk, decimal minimumReward, decimal maximumReward, string? note)
         {
@@ -45,9 +47,10 @@ namespace RMS
             {
                 _price= value;
                 SetRisk(ref _stoplossPrice, ref _risk);
+                SetReward(ref _targetPrice, ref _reward);
             }
         }
-        public  decimal StopLoss
+        public  decimal StopLossPrice
         {
             get
             {
@@ -59,7 +62,7 @@ namespace RMS
                 SetRisk(ref _stoplossPrice, ref _risk);
             }
         }
-        public  decimal Target
+        public  decimal TargetPrice
         {
             get
             {
@@ -68,6 +71,7 @@ namespace RMS
             set
             { 
                 _targetPrice= value;
+                SetReward(ref _targetPrice, ref _reward);
             }
         }
         public  decimal MinimumRisk
@@ -108,6 +112,32 @@ namespace RMS
                 return _reward;
             } 
         }
+
+        public decimal MinimumReward
+        {
+            get
+            {
+                return _minimumReward;
+            }
+            set
+            {
+                _minimumReward = value;
+                SetReward(ref _targetPrice, ref _risk);
+            }
+        }
+        public decimal MaximumReward
+        {
+            get
+            {
+                return _maximumReward;
+            }
+            set
+            {
+                _maximumReward = value;
+                SetReward(ref _targetPrice, ref _risk);
+            }
+        }
+
         public string? Note { get
             {
                 return _note;

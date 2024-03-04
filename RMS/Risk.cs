@@ -10,6 +10,7 @@ namespace RMS
     {
         protected decimal _capital;
         protected decimal _riskPercent;
+
         protected decimal _riskAmount;
         protected decimal _minimumRiskAmount;
         protected decimal _maximumRiskAmount;
@@ -22,10 +23,10 @@ namespace RMS
             _minimumRiskAmount = minimumRiskAmount;
             _maximumRiskAmount = maximumRiskAmount;
             _note = note;
-            SetRiskAmount();
+            SetRiskAmount(ref _riskAmount);
         }
 
-        private void SetRiskAmount()
+        private void SetRiskAmount(ref decimal _riskAmount)
         {
             decimal _risk = _capital * RiskPercent / 1000;
             if (_risk < _minimumRiskAmount) _riskAmount = _minimumRiskAmount;
@@ -39,7 +40,7 @@ namespace RMS
             set
             {
                 _capital = value;
-                SetRiskAmount(); 
+                SetRiskAmount(ref _riskAmount); 
             } }
 
         
@@ -52,7 +53,7 @@ namespace RMS
             set
             {
                 _riskPercent = value;
-                SetRiskAmount();
+                SetRiskAmount(ref _riskAmount);
             }
         }
 
@@ -66,7 +67,7 @@ namespace RMS
             set
             {
                 _minimumRiskAmount = value;
-                SetRiskAmount();
+                SetRiskAmount(ref _riskAmount);
 
             } 
         }
@@ -80,7 +81,7 @@ namespace RMS
             set
             {
                 _maximumRiskAmount = value;
-                SetRiskAmount();
+                SetRiskAmount(ref _riskAmount);
 
             } 
         }
