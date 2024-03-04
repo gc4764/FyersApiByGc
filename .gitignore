@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# my secret files
+authcode.txt
+appid.txt
+secret.txt
+*.txt
