@@ -8,5 +8,6 @@ namespace ApiBridge.Context
 {
     public class RequestMessageContext
     {
+        public string OrderType { get; internal set; }
     }
 }

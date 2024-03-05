@@ -11,4 +11,8 @@
     <Folder Include="Broker\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Api\Api.csproj" />
+  </ItemGroup>
+
 </Project>

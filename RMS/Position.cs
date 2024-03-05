@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using 
 
 namespace RMS
 {
@@ -16,8 +17,14 @@ namespace RMS
         protected int _countShortPosition = 0;
         protected int _countTotalPosition = 0;
 
+        public Position(IBrokerContext brokerContext, UserContext userContext, ILogger logger, RequestMessageContext cmd)
+        {
+            BrokerContext = brokerContext;
+            UserContext = userContext;
+            Logger = logger;
+            Cmd = cmd;
+        }
 
-        
         public void AddLong(string long_scrip_symbol)
         {
              _longPositions.Add(long_scrip_symbol);
@@ -69,6 +76,100 @@ namespace RMS
             return _totalPositions;
         }
 
+        public string ManageLE()
+        {
+            if (HaveLongPosition())
+            {
+                return string.Empty;
+            }
+            else if (HaveShortPosition())
+            {
+                CloseShortPosition();
+                OpenLongPosition();
+                return string.Empty;
+            }
+            else
+            {
+                OpenLongPosition();
+                return string.Empty ;
+            }
+        }
+
+        private void CloseShortPosition()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OpenLongPosition()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ManageSE()
+        {
+            if (HaveShortPosition())
+            {
+                return string.Empty;
+            }
+            else if (HaveLongPosition())
+            {
+                CloseLongPosition();
+                OpenShortPosition();
+                return string.Empty;
+            }
+            else
+            {
+                OpenShortPosition();
+                return string.Empty ;
+            }
+        }
+
+        private void CloseLongPosition()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OpenShortPosition()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool HaveLongPosition()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool HaveShortPosition()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ManageLX()
+        {
+            if(HaveLongPosition())
+            {
+                CloseLongPosition();
+                return string.Empty;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        public string ManageSX()
+        {
+            if(HaveShortPosition())
+            {
+                CloseShortPosition();
+                return string.Empty;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
         public int CountLongPosition
         {
            get
@@ -93,6 +194,9 @@ namespace RMS
             }
         }
 
-        
+        public global::ApiBridge.Context.Broker.IBrokerContext BrokerContext { get; }
+        public global::ApiBridge.UserContext UserContext { get; }
+        public global::GCLibrary.Logger.ILogger Logger { get; }
+        public global::ApiBridge.Context.RequestMessageContext Cmd { get; }
     }
 }

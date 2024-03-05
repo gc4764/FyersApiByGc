@@ -29,10 +29,10 @@ namespace ApiBridge.Trade
         public Task<string> Run(RequestMessageContext cmd)
         {
             string result;
-            CheckList checkList = new(_userContext, cmd);
+            CheckList checkList = new(_userContext, _logger ,cmd);
             if (checkList.Validate())
             {
-                RMSTest rmsTest = new(_brokerContext, _userContext, cmd);
+                RMSTest rmsTest = new(_brokerContext, _userContext, _logger ,cmd);
                 if(rmsTest.Validate())
                 {
                     OrderManagement orderManagement = new(_brokerContext, _userContext, _logger);
