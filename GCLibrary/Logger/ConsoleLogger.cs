@@ -12,9 +12,9 @@ namespace GCLibrary.Logger
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine(message);
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"Debug : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
@@ -25,7 +25,7 @@ namespace GCLibrary.Logger
             ConsoleColor bc = Console.BackgroundColor;
             Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine(message);
+            Console.WriteLine($"Error : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
@@ -36,7 +36,7 @@ namespace GCLibrary.Logger
             ConsoleColor bc = Console.BackgroundColor;
             Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(message);
+            Console.WriteLine($"Fatal : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
@@ -47,7 +47,7 @@ namespace GCLibrary.Logger
             ConsoleColor bc = Console.BackgroundColor;
             Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(message);
+            Console.WriteLine($"Fatal : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
@@ -56,9 +56,9 @@ namespace GCLibrary.Logger
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(message);
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"Info : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
@@ -67,9 +67,9 @@ namespace GCLibrary.Logger
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
-            Console.BackgroundColor = ConsoleColor.Red;
+            Console.BackgroundColor = ConsoleColor.Green;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(message);
+            Console.WriteLine($"Log : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
@@ -89,9 +89,9 @@ namespace GCLibrary.Logger
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(message);
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Warn : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
