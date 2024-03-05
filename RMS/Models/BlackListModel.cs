@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RMS.Models
 {
-    public class WhiteListModel : StockListModel
+    public class BlackListModel : StockListModel
     {
-        protected WhiteListModel(string mappingSymbol, string tradingSymbol) : base(mappingSymbol, tradingSymbol)
+        protected BlackListModel(string mappingSymbol, string tradingSymbol) : base(mappingSymbol, tradingSymbol)
         {
         }
     }

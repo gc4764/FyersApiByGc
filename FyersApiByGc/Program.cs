@@ -28,7 +28,7 @@ namespace FyersApiByGc
 
         static async Task Main(string[] args)
         {
-            Login login = new Login("https://api-t1.fyers.in/api/v3/", "WX1CU36E86-100", "AFX21W5OED", "1124",7);
+            Fyers login = new Fyers("https://api-t1.fyers.in/api/v3/", "WX1CU36E86-100", "AFX21W5OED", "1124",7);
             login.AuthCode = Utils.ReadFromFile("authcode.txt");
 
             //login test 

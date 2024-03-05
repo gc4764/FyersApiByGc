@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Api\Api.csproj" />
+    <ProjectReference Include="..\FyersApiByGc\FyersApiByGc.csproj" />
+    <ProjectReference Include="..\RMS\RMS.csproj" />
+  </ItemGroup>
+
 </Project>

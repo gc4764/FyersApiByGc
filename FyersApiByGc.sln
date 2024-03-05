@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBridge", "ApiBridge\ApiB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{AFD22AF2-4E96-4539-A845-1BFE58A37B21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCLibrary", "GCLibrary\GCLibrary.csproj", "{13E37456-7A90-47F9-89CB-3842ADC514F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AFD22AF2-4E96-4539-A845-1BFE58A37B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFD22AF2-4E96-4539-A845-1BFE58A37B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFD22AF2-4E96-4539-A845-1BFE58A37B21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E37456-7A90-47F9-89CB-3842ADC514F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E37456-7A90-47F9-89CB-3842ADC514F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E37456-7A90-47F9-89CB-3842ADC514F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E37456-7A90-47F9-89CB-3842ADC514F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

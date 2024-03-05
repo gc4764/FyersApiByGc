@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ApiBridge
+{
+    internal class PaperTrade
+    {
+        internal static void Run(MessageCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
