@@ -45,6 +45,11 @@ namespace GCLibrary.Logger
             throw new NotImplementedException();
         }
 
+        public void TestLogger()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Warn(string message)
         {
             throw new NotImplementedException();

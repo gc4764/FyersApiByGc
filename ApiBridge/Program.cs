@@ -1,4 +1,6 @@
-﻿using GCLibrary.Logger;
+﻿using ApiBridge.Context;
+using GCLibrary.Logger;
+using System;
 
 namespace ApiBridge
 {
@@ -6,13 +8,22 @@ namespace ApiBridge
     {
         static void Main(string[] args)
         {
+
+            // endpoints localhost:67588/trade/fyers
+            // endpoints localhost:67588/trade/dhanapi
+            // endpoints localhost:67588/trade/zerodha
+            // endpoints localhost:67588/trade/paper
             ILogger logger = new ConsoleLogger();
-            logger.Log("Hello Guddu log");
-            logger.Info("Hello Guddu info");
-            logger.Debug("Hello Guddu debug");
-            logger.Error("Hello Guddu error");
-            logger.Fatal("Hello Guddu fatal");
-            logger.Warn("Hello Guddu warn");
+            //logger.TestLogger();
+
+            RequestMessageContext cmd = new();
+          
+        
+
+            ApiBridge apiBridge = new(true,logger);
+            apiBridge.Run(cmd);
         }
+
+
     }
 }

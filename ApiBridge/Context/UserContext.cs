@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ApiBridge
 {
-    public class MessageCommand
+    public class UserContext
     {
+        public string MyProperty { get; set; }
     }
 }

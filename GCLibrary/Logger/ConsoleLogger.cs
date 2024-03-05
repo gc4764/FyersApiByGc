@@ -85,6 +85,16 @@ namespace GCLibrary.Logger
             Console.ForegroundColor = fc;
         }
 
+        public void TestLogger()
+        {
+            Log("Hello Guddu log");
+            Info("Hello Guddu info");
+            Debug("Hello Guddu debug");
+            Error("Hello Guddu error");
+            Fatal("Hello Guddu fatal");
+            Warn("Hello Guddu warn");
+        }
+
         public void Warn(string message)
         {
             ConsoleColor fc = Console.ForegroundColor;
@@ -95,6 +105,8 @@ namespace GCLibrary.Logger
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
+
+        
 
 
 

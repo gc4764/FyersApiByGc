@@ -16,5 +16,7 @@ namespace GCLibrary.Logger
         void Debug(string message);
         void Fatal(string message, Exception exception);
         void Log(string message);
+
+        void TestLogger();
     }
 }

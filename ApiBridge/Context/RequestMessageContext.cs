@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiBridge
+namespace ApiBridge.Context
 {
-    public class TradingContext
+    public class RequestMessageContext
     {
-
     }
 }
