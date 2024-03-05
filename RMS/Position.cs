@@ -12,12 +12,18 @@ namespace RMS
         protected HashSet<string> _shortPositions  = [];
         protected HashSet<string> _totalPositions = [];
 
+        protected int _countLongPosition = 0;
+        protected int _countShortPosition = 0;
+        protected int _countTotalPosition = 0;
+
 
         
         public void AddLong(string long_scrip_symbol)
         {
              _longPositions.Add(long_scrip_symbol);
             _totalPositions.Add(long_scrip_symbol);
+            _countLongPosition++;
+            _countTotalPosition++;
 
         }
 
@@ -30,6 +36,8 @@ namespace RMS
         {
             _shortPositions.Add(short_scrip_symbol);
             _totalPositions.Add(short_scrip_symbol);
+            _countShortPosition++;
+            _countTotalPosition++;
         }
 
         public HashSet<string> ShortPositions()
@@ -41,6 +49,9 @@ namespace RMS
         {
              _longPositions.Remove(long_scrip_symbol);
             _totalPositions.Remove(long_scrip_symbol);
+            _countLongPosition--;
+            _countTotalPosition--;
+
 
         }
 
@@ -48,6 +59,8 @@ namespace RMS
         {
             _shortPositions.Remove(short_scrip_symbol);
             _totalPositions.Remove(short_scrip_symbol);
+            _countShortPosition--;
+            _countTotalPosition--;
 
         }
 
@@ -55,5 +68,31 @@ namespace RMS
         {
             return _totalPositions;
         }
+
+        public int CountLongPosition
+        {
+           get
+              {
+                return _countLongPosition;
+            }
+        }
+
+        public int CountShortPosition
+        {
+            get
+            {
+                return _countShortPosition;
+            }
+        }
+
+        public int CountTotalPosition
+        {
+            get
+            {
+                return _countTotalPosition;
+            }
+        }
+
+        
     }
 }

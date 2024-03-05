@@ -16,5 +16,10 @@ namespace RMS
 
         public void RemoveLong(string long_scrip_symbol);
         public void RemoveShort(string short_scrip_symbol);
+
+
+        public int CountLongPosition { get; }
+        public int CountShortPosition { get; }
+        public int CountTotalPosition { get; }
     }
 }
