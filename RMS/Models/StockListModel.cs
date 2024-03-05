@@ -29,7 +29,7 @@ namespace RMS.Models
         public string ScripCode { get { return _scripCode; } set { _scripCode = value; } }
         public string Series { get { return _series; } set { _series = value; } }
         public decimal StrikePrice { get { return _strikePrice; } set { _strikePrice = value; } }
-        public string Expiry { get { return _expiry; } set { _expiry=value} }
+        public string Expiry { get { return _expiry; } set { _expiry = value; } }
 
     }
 }

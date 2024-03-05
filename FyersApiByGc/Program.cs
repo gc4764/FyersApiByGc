@@ -15,7 +15,7 @@ using FyersApiByGc.Model;
 using System.Threading;
 using FyersApiByGc.Response;
 using FyersApiByGc.Request;
-using FyersApiByGc.LoginApi;
+using FyersApiByGc.FyersApi;
 using FyersApiByGc.Http;
 using XAct.Messages;
 using XAct;
