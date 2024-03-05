@@ -14,6 +14,7 @@ namespace RMS
         public string Segment { get; set; } = string.Empty;
         public string Series { get; set; } = string.Empty;
         public string Fytoken { get; set; } = string.Empty;
+
         public int LotSize { get; set; } = 1;
         public decimal TickSize { get; set; } = 0.25m;
         public string ISIN { get; set; } = string.Empty;
