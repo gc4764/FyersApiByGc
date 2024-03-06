@@ -3,23 +3,24 @@ using GCLibrary.Logger;
 
 namespace ApiBridge.Filter
 {
-    internal class CheckList
+    public class CheckList(UserContext userContext, ILogger logger, RequestMessageContext cmd)
     {
-     
-
-        public CheckList(UserContext userContext, ILogger logger, RequestMessageContext cmd)
-        {
-            UserContext = userContext;
-            Logger = logger;
-            Cmd = cmd;
-        }
-
-        public UserContext UserContext { get; }
-        public RequestMessageContext Cmd { get; }
-        public ILogger Logger { get; }
+        private readonly UserContext _userContext = userContext;
+        private readonly ILogger _logger = logger;
+        private readonly RequestMessageContext _cmd = cmd;
 
         public bool Validate()
         {
+            CheckWhiteList checkWhiteList = new(_userContext, _logger, _cmd);
+            if(checkWhiteList.Validate())
+            {
+                CheckBlackList checkBlackList = new(_userContext, _logger, _cmd);
+                if(checkBlackList.Validate())
+                {
+                    return true;
+                }
+                return false;
+            }
             return true;
         }
     }

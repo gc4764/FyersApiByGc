@@ -2,11 +2,11 @@
 using ApiBridge.Context.Broker;
 using GCLibrary.Logger;
 
-namespace ApiBridge.Trade
+namespace ApiBridge.Filter
 {
-    internal class LocalRMSTest
+    internal class GlobalRMSTest
     {
-        public LocalRMSTest(IBrokerContext brokerContext, UserContext userContext, ILogger logger, RequestMessageContext cmd)
+        public GlobalRMSTest(IBrokerContext brokerContext, UserContext userContext, ILogger logger, RequestMessageContext cmd)
         {
             BrokerContext = brokerContext;
             UserContext = userContext;

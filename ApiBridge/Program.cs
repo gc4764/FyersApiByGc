@@ -1,6 +1,9 @@
 ﻿using ApiBridge.Context;
 using GCLibrary.Logger;
 using System;
+using System.Configuration.Assemblies;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace ApiBridge
 {
@@ -17,13 +20,11 @@ namespace ApiBridge
             //logger.TestLogger();
 
             RequestMessageContext cmd = new();
-          
-        
 
-            ApiBridge apiBridge = new(true,logger);
-            apiBridge.Run(cmd);
+
+
+
+
         }
-
-
     }
 }

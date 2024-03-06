@@ -2,11 +2,11 @@
 using ApiBridge.Context.Broker;
 using GCLibrary.Logger;
 
-namespace ApiBridge.Trade
+namespace ApiBridge.Filter
 {
     public class RMSTest
     {
-   
+
 
         public RMSTest(IBrokerContext brokerContext, UserContext userContext, ILogger logger, RequestMessageContext cmd)
         {
@@ -23,17 +23,19 @@ namespace ApiBridge.Trade
 
         public bool Validate()
         {
-            GlobalRMSTest globalRMSTest = new(BrokerContext, UserContext,Logger ,Cmd);
+            GlobalRMSTest globalRMSTest = new(BrokerContext, UserContext, Logger, Cmd);
 
-            LocalRMSTest localRMSTest = new(BrokerContext, UserContext,Logger ,Cmd);
+            LocalRMSTest localRMSTest = new(BrokerContext, UserContext, Logger, Cmd);
 
-            if(globalRMSTest.Validate())
+            if (globalRMSTest.Validate())
             {
                 if (localRMSTest.Validate())
                 {
                     return true;
-                }else { return false; }
-            } else { return false; }
+                }
+                else { return false; }
+            }
+            else { return false; }
         }
     }
 }

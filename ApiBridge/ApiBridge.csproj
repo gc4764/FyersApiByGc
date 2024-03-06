@@ -14,4 +14,6 @@
     <ProjectReference Include="..\RMS\RMS.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties mysetting_1json__JsonSchema="https://api.airplane.dev/v0/schemas/task.json" /></VisualStudio></ProjectExtensions>
+
 </Project>
