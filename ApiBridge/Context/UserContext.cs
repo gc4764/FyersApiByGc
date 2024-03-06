@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GCLibrary.Interfaces;
+using RMS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ApiBridge
 {
-    public class UserContext
+    public class UserContext: IUserContext
     {
-        public string MyProperty { get; set; }
+        
     }
 }

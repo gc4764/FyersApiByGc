@@ -1,9 +1,6 @@
-﻿using ApiBridge.Context;
-using GCLibrary.Logger;
-using System;
-using System.Configuration.Assemblies;
-using System.Configuration;
-using Microsoft.Extensions.Configuration;
+﻿using GCLibrary.Logger;
+using GCLibrary.Interfaces;
+
 
 namespace ApiBridge
 {
@@ -19,7 +16,7 @@ namespace ApiBridge
             ILogger logger = new ConsoleLogger();
             //logger.TestLogger();
 
-            RequestMessageContext cmd = new();
+            IRequestMessageContext cmd;
 
 
 

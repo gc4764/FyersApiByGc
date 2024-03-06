@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiBridge.Context.Broker
+namespace Test.Interfaces
 {
-    public interface IBrokerContext
+    public interface IFilter
     {
+        FilterResponse Result { get;  }
+        FilterResponse RunFilter();
     }
 }

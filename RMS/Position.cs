@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
- 
+﻿using GCLibrary.Logger;
+using GCLibrary.Interfaces;
+
+
 
 namespace RMS
 {
     public class Position : IPosition
     {
+        public Position()
+        {
+            
+        }
         protected HashSet<string> _longPositions  = [];
         protected HashSet<string> _shortPositions  = [];
         protected HashSet<string> _totalPositions = [];
@@ -17,12 +19,16 @@ namespace RMS
         protected int _countShortPosition = 0;
         protected int _countTotalPosition = 0;
 
-        public Position(IBrokerContext brokerContext, UserContext userContext, ILogger logger, RequestMessageContext cmd)
+        protected IBrokerContext _brokerContext;
+        protected IUserContext _userContext;
+        protected ILogger _logger;
+        protected IRequestMessageContext _cmd;
+        public Position(IBrokerContext brokerContext, IUserContext userContext, ILogger logger, IRequestMessageContext cmd)
         {
-            BrokerContext = brokerContext;
-            UserContext = userContext;
-            Logger = logger;
-            Cmd = cmd;
+            _brokerContext = brokerContext;
+            _userContext = userContext;
+            _logger = logger;
+            _cmd = cmd;
         }
 
         public void AddLong(string long_scrip_symbol)
@@ -194,9 +200,6 @@ namespace RMS
             }
         }
 
-        public global::ApiBridge.Context.Broker.IBrokerContext BrokerContext { get; }
-        public global::ApiBridge.UserContext UserContext { get; }
-        public global::GCLibrary.Logger.ILogger Logger { get; }
-        public global::ApiBridge.Context.RequestMessageContext Cmd { get; }
+       
     }
 }

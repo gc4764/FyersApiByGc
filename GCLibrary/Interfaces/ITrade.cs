@@ -1,4 +1,4 @@
-﻿namespace ApiBridge.Trade
+﻿namespace GCLibrary.Interfaces
 {
     public interface ITrade
     {

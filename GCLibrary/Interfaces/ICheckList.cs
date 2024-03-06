@@ -1,4 +1,7 @@
-﻿namespace ApiBridge.Filter
+﻿
+
+
+namespace GCLibrary.Interfaces
 {
     internal interface ICheckList
     {

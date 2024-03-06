@@ -1,13 +1,12 @@
-﻿using ApiBridge.Context;
-using ApiBridge.Context.Broker;
-using GCLibrary.Logger;
+﻿using GCLibrary.Logger;
+using GCLibrary.Interfaces;
 using RMS;
 
 namespace ApiBridge.Trade
 {
     internal class OrderManagement
     {
-        public OrderManagement(IBrokerContext brokerContext, UserContext userContext, ILogger logger)
+        public OrderManagement(IBrokerContext brokerContext, IUserContext userContext, ILogger logger)
         {
             BrokerContext = brokerContext;
             UserContext = userContext;
@@ -15,13 +14,14 @@ namespace ApiBridge.Trade
         }
 
         public IBrokerContext BrokerContext { get; }
-        public UserContext UserContext { get; }
+        public IUserContext UserContext { get; }
         public ILogger Logger { get; }
 
-        public string FireOrder(RequestMessageContext cmd)
+        public string FireOrder(IRequestMessageContext cmd)
         {
             string? result;
-            Position position = new(BrokerContext, UserContext, Logger, cmd);
+            /*Position position = new(BrokerContext, UserContext, Logger, cmd);*/
+            Position position = new();
             if (cmd == null) { return string.Empty; }
             if (cmd.OrderType == "LE")
             {

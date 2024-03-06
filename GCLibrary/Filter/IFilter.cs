@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiBridge.Context
+namespace GCLibrary.Filter
 {
-    public class RequestMessageContext
+    public interface IFilter
     {
-        public string OrderType { get; internal set; }
+        FilterResponse Result { get; }
+        FilterResponse RunFilter();
     }
 }
