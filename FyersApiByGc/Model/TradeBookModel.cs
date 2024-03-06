@@ -14,7 +14,7 @@ using System.Security.AccessControl;
 using System.Text.Json;
 
 
-namespace FyersApiByGc
+namespace FyersApiClient
 {
     public  class tradeBookModel
     {

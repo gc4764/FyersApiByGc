@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-using XAct;
+
 
 //using XSystem.Security.Cryptography;
 
 
-namespace FyersApiByGc
+namespace GCLibrary
 {
     public class Utils
     {
@@ -52,8 +52,8 @@ namespace FyersApiByGc
         }
 
 
-        public Dictionary<string, string> ToDictionary(Object obj)
-        {
+       /* public Dictionary<string, string> ToDictionary(Object obj)
+        { //need XAct namespace
             foreach(var kvp in obj.GetObjectPropertyValues()) 
             {
                 var key = kvp.Key;
@@ -61,6 +61,6 @@ namespace FyersApiByGc
 
 
             return new Dictionary<string, string>();
-        }
+        }*/
     }
 }

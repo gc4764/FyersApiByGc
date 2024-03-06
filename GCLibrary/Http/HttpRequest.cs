@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace GCLibrary.Http
 {
@@ -17,33 +17,33 @@ namespace GCLibrary.Http
         //public static string? ClientSecret { get; set; } = null;
         // public static string? AuthCode { get; set; } = null;
 
-        public async Task<string?> GetByGcAsync(string? endPoint,
+        public  async Task<string?> GetByGcAsync(string? route,
             Dictionary<string, string>? url_parameter_dict,
             Dictionary<string, string>? headers_in_dict)
         {
-            var result = await RequestAsync(HttpMethod.Get, endPoint, url_parameter_dict, headers_in_dict, null);
+            var result = await RequestAsync(HttpMethod.Get, route, url_parameter_dict, headers_in_dict, null);
             return result;
         }
 
 
 
-        public async Task<string?> PostByGcAsync(string? endPoint,
+        public async Task<string?> PostByGcAsync(string? route,
               Dictionary<string, string>? url_parameter_dict,
               Dictionary<string, string>? headers_in_dict,
-              object daataObject)
+              Object daataObject)
         {
-            var result = await RequestAsync(HttpMethod.Post, endPoint, url_parameter_dict, headers_in_dict, daataObject);
+            var result = await RequestAsync(HttpMethod.Post, route, url_parameter_dict, headers_in_dict, daataObject);
             return result;
         }
 
 
 
-        public async Task<string?> DeleteByGcAsync(string? endPoint,
+        public async Task<string?> DeleteByGcAsync(string? route,
             Dictionary<string, string>? url_parameter_dict,
             Dictionary<string, string>? headers_in_dict,
-            object daataObject)
+            Object daataObject)
         {
-            var result = await RequestAsync(HttpMethod.Delete, endPoint, url_parameter_dict, headers_in_dict, daataObject);
+            var result = await RequestAsync(HttpMethod.Delete, route, url_parameter_dict, headers_in_dict, daataObject);
             return result;
         }
 
@@ -62,23 +62,23 @@ namespace GCLibrary.Http
 
 
 
-        public async Task<string?> PatchByGcAsync(string? endPoint,
+        public async Task<string?> PatchByGcAsync(string? route,
             Dictionary<string, string>? url_parameter_dict,
             Dictionary<string, string>? headers_in_dict,
-            object daataObject)
+            Object daataObject)
         {
-            var result = await RequestAsync(HttpMethod.Patch, endPoint, url_parameter_dict, headers_in_dict, daataObject);
+            var result = await RequestAsync(HttpMethod.Patch, route, url_parameter_dict, headers_in_dict, daataObject);
             return result;
         }
 
 
 
 
-        private async Task<string?> RequestAsync(HttpMethod method,
-            string? endPoint,
+        private async Task<string?> RequestAsync(HttpMethod method, 
+            string? route, 
             Dictionary<string, string>? url_parameter_dict,
             Dictionary<string, string>? headers_in_dict,
-            object? dataObject)
+            Object? dataObject)
         {
 
 
@@ -91,13 +91,13 @@ namespace GCLibrary.Http
                 string urlParams;
                 if (url_parameter_dict != null)
 
-                    urlParams = GetParamsFromDictionary(url_parameter_dict);
+                     urlParams = GetParamsFromDictionary(url_parameter_dict);
                 else
                     urlParams = "";
                 // full address
                 string address;
-                endPoint ??= "";
-                address = BaseAddress + endPoint + urlParams;
+                route ??= "";
+                address = BaseAddress + route + urlParams;
 
                 // request message 
                 HttpRequestMessage requestMessage = new(method, address);
@@ -107,14 +107,14 @@ namespace GCLibrary.Http
                     string jsonData = JsonSerializer.Serialize(dataObject);
                     client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
                     requestMessage.Content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                    // requestMessage.Headers.Add("Content-Type", "application/json");
+                   // requestMessage.Headers.Add("Content-Type", "application/json");
 
                 }
 
                 // adding headers
                 if (headers_in_dict != null)
                 {
-                    foreach (KeyValuePair<string, string> kvp in headers_in_dict)
+                    foreach (KeyValuePair<string,string> kvp in headers_in_dict)
                     {
                         client.DefaultRequestHeaders.TryAddWithoutValidation(kvp.Key, kvp.Value);
                     }

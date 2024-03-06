@@ -4,101 +4,106 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
-using XAct;
 
-namespace FyersApiByGc.Http
+namespace GCLibrary.Http
 {
-    public class HttpRequest(string base_address, int seconds)
+    public class HttpRequestV2(string base_address, int time_out_in_seconds)
     {
-        public int TimeOut { get; set; } = seconds;
+        public int TimeOut { get; set; } = time_out_in_seconds;
         public string BaseAddress { get; set; } = base_address;
 
-        //public static string? AccessToken  { get; set; } = null ;
-        // public static string? ClientId { get; set; } 
-        //public static string? ClientSecret { get; set; } = null;
-        // public static string? AuthCode { get; set; } = null;
 
-        public  async Task<string?> GetByGcAsync(string? endPoint,
+
+        public async Task<string?> GetByGcAsync
+            (
+            string? route,
             Dictionary<string, string>? url_parameter_dict,
-            Dictionary<string, string>? headers_in_dict)
+            Dictionary<string, string>? headers_in_dict
+            )
         {
-            var result = await RequestAsync(HttpMethod.Get, endPoint, url_parameter_dict, headers_in_dict, null);
+            var result = await RequestAsync(HttpMethod.Get, route, url_parameter_dict, headers_in_dict, null);
             return result;
         }
 
 
 
-        public async Task<string?> PostByGcAsync(string? endPoint,
-              Dictionary<string, string>? url_parameter_dict,
-              Dictionary<string, string>? headers_in_dict,
-              Object daataObject)
-        {
-            var result = await RequestAsync(HttpMethod.Post, endPoint, url_parameter_dict, headers_in_dict, daataObject);
-            return result;
-        }
-
-
-
-        public async Task<string?> DeleteByGcAsync(string? endPoint,
+        public async Task<string?> PostByGcAsync
+            (
+            string? route, 
             Dictionary<string, string>? url_parameter_dict,
             Dictionary<string, string>? headers_in_dict,
-            Object daataObject)
+            Object daataObject
+            )
         {
-            var result = await RequestAsync(HttpMethod.Delete, endPoint, url_parameter_dict, headers_in_dict, daataObject);
+            var result = await RequestAsync(HttpMethod.Post, route, url_parameter_dict, headers_in_dict, daataObject);
             return result;
         }
 
 
 
-        /*
-                public  async Task<string?> PutByGcAsync(string? endPoint,
-                    Dictionary<string, string>? url_parameter_dict,
-                    Dictionary<string, string>? headers_in_dict,
-                    Object daataObject)
-                {
-                    var result = await RequestAsync(HttpMethod.Post, endPoint, url_parameter_dict, headers_in_dict, daataObject);
-                    return result;
-                }
-        */
-
-
-
-        public async Task<string?> PatchByGcAsync(string? endPoint,
+        public async Task<string?> DeleteByGcAsync
+            (
+            string? route,
             Dictionary<string, string>? url_parameter_dict,
             Dictionary<string, string>? headers_in_dict,
-            Object daataObject)
+            Object daataObject
+            )
         {
-            var result = await RequestAsync(HttpMethod.Patch, endPoint, url_parameter_dict, headers_in_dict, daataObject);
+            var result = await RequestAsync(HttpMethod.Delete, route, url_parameter_dict, headers_in_dict, daataObject);
             return result;
         }
 
 
 
 
-        private async Task<string?> RequestAsync(HttpMethod method, 
-            string? endPoint, 
+        public async Task<string?> PutByGcAsync
+            (
+            string? endPoint,
             Dictionary<string, string>? url_parameter_dict,
             Dictionary<string, string>? headers_in_dict,
-            Object? dataObject)
+            Object daataObject
+            )
         {
+            var result = await RequestAsync(HttpMethod.Put, endPoint, url_parameter_dict, headers_in_dict, daataObject);
+            return result;
+        }
 
 
+
+
+        public async Task<string?> PatchByGcAsync
+            (
+            string baseAddress,
+            string? route,
+            Dictionary<string, string>? url_parameter_dict,
+            Dictionary<string, string>? headers_in_dict,
+            Object daataObject
+            )
+        {
+            var result = await RequestAsync(HttpMethod.Patch, route, url_parameter_dict, headers_in_dict, daataObject);
+            return result;
+        }
+
+
+
+
+        private async Task<string?> RequestAsync
+            (
+            HttpMethod method,
+            string? route,
+            Dictionary<string, string>? url_parameter_dict,
+            Dictionary<string, string>? headers_in_dict,
+            Object? dataObject
+            )
+
+        {
             string? result;
             using (HttpClient client = new())
             {
                 // time out in seconds
                 client.Timeout = TimeSpan.FromSeconds(TimeOut);
                 // dictionry to url parameter
-                string urlParams;
-                if (url_parameter_dict != null)
-
-                     urlParams = GetParamsFromDictionary(url_parameter_dict);
-                else
-                    urlParams = "";
-                // full address
-                string address;
-                endPoint ??= "";
-                address = BaseAddress + endPoint + urlParams;
+               string address = GetFullAddress( route, url_parameter_dict);
 
                 // request message 
                 HttpRequestMessage requestMessage = new(method, address);
@@ -108,22 +113,18 @@ namespace FyersApiByGc.Http
                     string jsonData = JsonSerializer.Serialize(dataObject);
                     client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
                     requestMessage.Content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                   // requestMessage.Headers.Add("Content-Type", "application/json");
 
                 }
 
                 // adding headers
                 if (headers_in_dict != null)
                 {
-                    foreach (KeyValuePair<string,string> kvp in headers_in_dict)
+                    foreach (KeyValuePair<string, string> kvp in headers_in_dict)
                     {
                         client.DefaultRequestHeaders.TryAddWithoutValidation(kvp.Key, kvp.Value);
                     }
                 }
-                /*if (authheader != null)
-                    client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", authheader);*/
-                // requestMessage.Headers.Add(" Authorization", authheader);
-                //client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", $"{ClientId}:{AccessToken}");
+                
                 var response = await client.SendAsync(requestMessage);
                 if (response.IsSuccessStatusCode)
                     result = await response.Content.ReadAsStringAsync();
@@ -134,6 +135,24 @@ namespace FyersApiByGc.Http
 
             return result;
         }
+
+        private string GetFullAddress(string? route, Dictionary<string, string>? url_parameter_dict)
+        {
+            string fullAddress;
+            string urlParams;
+
+            route ??= "";
+
+            if (url_parameter_dict != null)
+
+                urlParams = GetParamsFromDictionary(url_parameter_dict);
+            else
+                urlParams = "";
+
+            fullAddress = BaseAddress + route + urlParams;
+            return fullAddress;
+        }
+
         private static string DictionaryToParams(Dictionary<string, string> dict)
         {
             string raw_parameters = "?";

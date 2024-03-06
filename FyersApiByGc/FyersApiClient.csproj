@@ -33,11 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataApi\" />
-    <Folder Include="WebSocketApi\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GCLibrary\GCLibrary.csproj" />
   </ItemGroup>
 

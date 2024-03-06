@@ -1,4 +1,5 @@
 ﻿using GCLibrary.Filter;
+using GCLibrary.Interfaces;
 
 
 namespace GCLibrary.Filter

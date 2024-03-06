@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FyersApiByGc", "FyersApiByGc\FyersApiByGc.csproj", "{A57169F4-B4C1-48FA-A8A9-7DEA24B7975B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FyersApiClient", "FyersApiByGc\FyersApiClient.csproj", "{A57169F4-B4C1-48FA-A8A9-7DEA24B7975B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMS", "RMS\RMS.csproj", "{EA386DD3-482C-412C-A74D-56F4D0CBA5A5}"
 EndProject
@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GCLibrary", "GCLibrary\GCLibrary.csproj", "{13E37456-7A90-47F9-89CB-3842ADC514F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{3DDAF552-B43D-42FB-9FC0-19C75AD67C29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{3DDAF552-B43D-42FB-9FC0-19C75AD67C29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

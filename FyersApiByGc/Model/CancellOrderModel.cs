@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FyersApiByGc.Model
+namespace FyersApiClient.Model
 {
     public class CancellOrderModel
     {

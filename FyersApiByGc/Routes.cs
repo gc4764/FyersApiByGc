@@ -13,9 +13,9 @@ using System.Security.AccessControl;
 using System.Text.Json;
 
 
-namespace FyersApiByGc
+namespace FyersApiClient
 {
-public static class EndPoints
+public static class Routes
 {
 
     // Base Url

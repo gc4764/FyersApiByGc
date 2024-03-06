@@ -1,4 +1,4 @@
-﻿using FyersApiByGc.Request;
+﻿using FyersApiClient.Request;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FyersApiByGc
+namespace FyersApiClient
 {
     public enum OrderType
     {

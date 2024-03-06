@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using FyersApiByGc.Http;
-using FyersApiByGc.Request;
-using FyersApiByGc;
-using FyersApiByGc.Response;
+﻿using FyersApiClient.Request;
+using GCLibrary.Http;
 
-namespace FyersApiByGc.FyersApi
+namespace FyersApiClient
 {
-    public class Fyers(string base_address, string client_id, string app_secret, string pin, int time_out)
+    public class FyersV2(string base_address, string client_id, string app_secret, string pin, int time_out)
     {
         public string BaseAddress { get; set; } = base_address;
         public string ClientId { get; set; } = client_id;
@@ -21,7 +13,7 @@ namespace FyersApiByGc.FyersApi
 
 
         public string AuthCode { get; set; }
-        public string? AccessToken { get; set; } 
+        public string? AccessToken { get; set; }
 
         public string RefreshToken { get; set; }
 
@@ -45,19 +37,16 @@ namespace FyersApiByGc.FyersApi
         int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
             OrderRequest data = new()
             {
                 symbol = symbol,
                 qty = qty,
-                type = (int) OrderType.LimitOrder,
+                type = (int)OrderType.LimitOrder,
                 side = (int)OrderSide.Sell,
 
                 productType = productType,
@@ -71,7 +60,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -91,19 +80,16 @@ namespace FyersApiByGc.FyersApi
            int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
             OrderRequest data = new()
             {
                 symbol = symbol,
                 qty = qty,
-                type = (int) OrderType.LimitOrder,
+                type = (int)OrderType.LimitOrder,
                 side = (int)OrderSide.Buy,
 
                 productType = productType,
@@ -117,7 +103,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -138,19 +124,16 @@ namespace FyersApiByGc.FyersApi
         int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
             OrderRequest data = new()
             {
                 symbol = symbol,
                 qty = qty,
-                type = (int) OrderType.MarketOrder,
+                type = (int)OrderType.MarketOrder,
                 side = (int)OrderSide.Sell,
 
                 productType = productType,
@@ -164,7 +147,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -189,13 +172,11 @@ namespace FyersApiByGc.FyersApi
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
             OrderRequest data = new()
             {
                 symbol = symbol,
                 qty = qty,
-                type = (int) OrderType.MarketOrder,
+                type = (int)OrderType.MarketOrder,
                 side = (int)OrderSide.Buy,
 
                 productType = productType,
@@ -209,7 +190,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -231,19 +212,16 @@ namespace FyersApiByGc.FyersApi
         int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
             OrderRequest data = new()
             {
                 symbol = symbol,
                 qty = qty,
-                type = (int) OrderType.StopLossMarketOrder,
+                type = (int)OrderType.StopLossMarketOrder,
                 side = (int)OrderSide.Sell,
 
                 productType = productType,
@@ -257,7 +235,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -277,19 +255,16 @@ namespace FyersApiByGc.FyersApi
            int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
             OrderRequest data = new()
             {
                 symbol = symbol,
                 qty = qty,
-                type = (int) OrderType.StopLossMarketOrder,
+                type = (int)OrderType.StopLossMarketOrder,
                 side = (int)OrderSide.Buy,
 
                 productType = productType,
@@ -303,7 +278,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -326,19 +301,16 @@ namespace FyersApiByGc.FyersApi
         int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
             OrderRequest data = new()
             {
                 symbol = symbol,
                 qty = qty,
-                type = (int) OrderType.StopLossLimitOrder,
+                type = (int)OrderType.StopLossLimitOrder,
                 side = (int)OrderSide.Sell,
 
                 productType = productType,
@@ -352,7 +324,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -373,19 +345,16 @@ namespace FyersApiByGc.FyersApi
            int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
             OrderRequest data = new()
             {
                 symbol = symbol,
                 qty = qty,
-                type = (int) OrderType.StopLossLimitOrder,
+                type = (int)OrderType.StopLossLimitOrder,
                 side = (int)OrderSide.Buy,
 
                 productType = productType,
@@ -399,7 +368,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -425,13 +394,10 @@ namespace FyersApiByGc.FyersApi
           int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
-
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
 
             OrderRequest data = new()
             {
@@ -451,7 +417,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -473,13 +439,10 @@ namespace FyersApiByGc.FyersApi
            int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
-
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
 
             OrderRequest data = new()
             {
@@ -499,7 +462,7 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -508,15 +471,12 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> ModifyOrder(ModifyOrderRequest data_object)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
-            var result = await request.PatchByGcAsync(EndPoints.orders, null, headers, data_object);
+            var result = await request.PatchByGcAsync(Routes.orders, null, headers, data_object);
 
 
             return result;
@@ -532,13 +492,10 @@ namespace FyersApiByGc.FyersApi
             )
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
-
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
 
             ModifyOrderRequest data = new()
             {
@@ -552,7 +509,7 @@ namespace FyersApiByGc.FyersApi
 
             };
 
-            var result = await request.PatchByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PatchByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -562,13 +519,10 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> CancellOrder(string id)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
-
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
 
             CancellOrderRequest data = new()
             {
@@ -576,7 +530,7 @@ namespace FyersApiByGc.FyersApi
 
             };
 
-            var result = await request.DeleteByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.DeleteByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
@@ -586,7 +540,6 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> ExitAllOpenPosition()
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
@@ -597,7 +550,7 @@ namespace FyersApiByGc.FyersApi
                 exit_all = 1
             };
 
-            var result = await request.DeleteByGcAsync(EndPoints.positions, null, headers, data_object);
+            var result = await request.DeleteByGcAsync(Routes.positions, null, headers, data_object);
 
 
             return result;
@@ -607,7 +560,6 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> ExitPositionBySymbolId(string exchange, string symbol, string series, ProductType type)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
@@ -618,17 +570,16 @@ namespace FyersApiByGc.FyersApi
                 id = $"{exchange.ToUpper()}:{symbol.ToUpper()}-{series.ToUpper()}-{type}"
             };
 
-            var result = await request.DeleteByGcAsync(EndPoints.positions, null, headers, data_object);
+            var result = await request.DeleteByGcAsync(Routes.positions, null, headers, data_object);
 
 
             return result;
         }
 
 
-        public async Task<string?> ExitPositionByProductType( List<string> productTypes)
+        public async Task<string?> ExitPositionByProductType(List<string> productTypes)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
@@ -636,11 +587,11 @@ namespace FyersApiByGc.FyersApi
 
             var data_object = new
             {
-            
+
                 productType = productTypes,
             };
 
-            var result = await request.DeleteByGcAsync(EndPoints.positions, null, headers, data_object);
+            var result = await request.DeleteByGcAsync(Routes.positions, null, headers, data_object);
 
 
             return result;
@@ -649,7 +600,6 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> ExitPositionBySegments(List<int> segments)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
@@ -660,16 +610,15 @@ namespace FyersApiByGc.FyersApi
                 segment = segments
             };
 
-            var result = await request.DeleteByGcAsync(EndPoints.positions, null, headers, data_object);
+            var result = await request.DeleteByGcAsync(Routes.positions, null, headers, data_object);
 
 
             return result;
         }
 
-        public async Task<string?> ExitPositionBySides( List<int> sides)
+        public async Task<string?> ExitPositionBySides(List<int> sides)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
@@ -680,7 +629,7 @@ namespace FyersApiByGc.FyersApi
                 side = sides,
             };
 
-            var result = await request.DeleteByGcAsync(EndPoints.positions, null, headers, data_object);
+            var result = await request.DeleteByGcAsync(Routes.positions, null, headers, data_object);
 
 
             return result;
@@ -689,7 +638,6 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> ExitPositionBySegmentsSidesAndProductType(List<int> segments, List<int> sides, List<string> types)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
@@ -702,7 +650,7 @@ namespace FyersApiByGc.FyersApi
                 productType = types,
             };
 
-            var result = await request.DeleteByGcAsync(EndPoints.positions, null, headers, data_object);
+            var result = await request.DeleteByGcAsync(Routes.positions, null, headers, data_object);
 
 
             return result;
@@ -711,14 +659,13 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> CancellOrder(CancellOrderRequest data_object)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
 
-            var result = await request.DeleteByGcAsync(EndPoints.orders, null, headers, data_object);
+            var result = await request.DeleteByGcAsync(Routes.orders, null, headers, data_object);
 
 
             return result;
@@ -727,26 +674,23 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> PlaceOrder(string symbol,
             int qty,
             int type,
-            int side, 
+            int side,
 
-            string productType, 
+            string productType,
             decimal limitPrice,
-            decimal stopPrice, 
+            decimal stopPrice,
             string validity,
 
             decimal stopLoss,
-            decimal takeProfit, 
-            bool offlineOrder, 
+            decimal takeProfit,
+            bool offlineOrder,
             int disclosedQty)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
-
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
 
             OrderRequest data = new()
             {
@@ -766,24 +710,21 @@ namespace FyersApiByGc.FyersApi
                 validity = validity
             };
 
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data);
 
 
             return result;
         }
 
-        public async Task<string?> PlaceOrder( OrderRequest data_object)
+        public async Task<string?> PlaceOrder(OrderRequest data_object)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/          
-
-            var result = await request.PostByGcAsync(EndPoints.orders, null, headers, data_object);
+            var result = await request.PostByGcAsync(Routes.orders, null, headers, data_object);
 
 
             return result;
@@ -813,20 +754,17 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> TradeBookByTag(string orderTag)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
-
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
 
             Dictionary<string, string> url_parameter = new()
             {
                 {"id", $"1:{orderTag}"}
             };
 
-            var result = await request.GetByGcAsync(EndPoints.tradebook, url_parameter, headers);
+            var result = await request.GetByGcAsync(Routes.tradebook, url_parameter, headers);
 
 
             return result;
@@ -835,15 +773,12 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> TradeBook()
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
-            var result = await request.GetByGcAsync(EndPoints.tradebook, null, headers);
+            var result = await request.GetByGcAsync(Routes.tradebook, null, headers);
 
 
             return result;
@@ -852,38 +787,34 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> Positions()
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
-            var result = await request.GetByGcAsync(EndPoints.positions, null, headers);
+            var result = await request.GetByGcAsync(Routes.positions, null, headers);
 
 
             return result;
         }
+
         /*        public  async Task<string?> OrderBookByTag(string OrderTag);
         */
+
         public async Task<string?> OrderBook(string orderId)
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
-
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
 
             Dictionary<string, string> url_parameter = new()
             {
                 {"id", orderId}
             };
 
-            var result = await request.GetByGcAsync(EndPoints.orderbook, url_parameter, headers);
+            var result = await request.GetByGcAsync(Routes.orderbook, url_parameter, headers);
 
 
             return result;
@@ -895,11 +826,9 @@ namespace FyersApiByGc.FyersApi
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
-            };
+            }
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
-            var result = await request.GetByGcAsync(EndPoints.orderbook, null, headers);
+            var result = await request.GetByGcAsync(Routes.orderbook, null, headers);
 
 
             return result;
@@ -908,15 +837,12 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> Holdings()
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
-            var result = await request.GetByGcAsync(EndPoints.holdings, null, headers);
+            var result = await request.GetByGcAsync(Routes.holdings, null, headers);
 
 
             return result;
@@ -925,16 +851,13 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> Funds()
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
             };
 
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
+            var result = await request.GetByGcAsync(Routes.funds, null, headers);
 
-            var result = await request.GetByGcAsync(EndPoints.funds, null, headers);
-            
 
             return result;
         }
@@ -943,26 +866,24 @@ namespace FyersApiByGc.FyersApi
         public async Task<string?> Profile()
         {
             HttpRequest request = new(BaseAddress, TimeOut);
-            // Dictionary<string, string> headers = AuthHeader();
-            Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add("Authorization", $"{ClientId}:{AccessToken}");
-
-            /*   string authheader = $"{ClientId}:{AccessToken}";*/
-
-            var result = await request.GetByGcAsync(EndPoints.profile, null, headers);
+            Dictionary<string, string> headers = new()
+            {
+                { "Authorization", $"{ClientId}:{AccessToken}" }
+            };
+            var result = await request.GetByGcAsync(Routes.profile, null, headers);
 
 
             return result;
         }
 
-        private Dictionary<string , string> AuthHeader()
+        private Dictionary<string, string> AuthHeader()
         {
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("Authorization", $"{ClientId}:{AccessToken}");
             return headers;
         }
 
-        public  string GetLoginUrl()
+        public string GetLoginUrl()
         {
             string baseurl = "https://api-t1.fyers.in/api/v3/";
             string redirect_uri = "https://trade.fyers.in/api-login/redirect-uri/index.html";
@@ -996,13 +917,13 @@ namespace FyersApiByGc.FyersApi
 
             string? result;
 
-            ValidateAuthcodeReuest validateAuthcodeReuest = new()
+            ValidateAuthcodeRequest validateAuthcodeRequest = new()
             {
                 code = AuthCode,
                 appIdHash = AppIdHash
             };
 
-            result = await request.PostByGcAsync(EndPoints.validate_authcode, null, null, validateAuthcodeReuest);
+            result = await request.PostByGcAsync(Routes.validate_authcode, null, null, validateAuthcodeRequest);
 
             return result;
         }

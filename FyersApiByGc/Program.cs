@@ -1,27 +1,8 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.IO;
-using System.Text;
-using System.Text.Json;
-using System.Net.Http.Headers;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Security.Cryptography;
-using RestSharp;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Net.Http.Json;
-using FyersApiByGc.Model;
-using System.Threading;
-using FyersApiByGc.Response;
-using FyersApiByGc.Request;
-using FyersApiByGc.FyersApi;
-using FyersApiByGc.Http;
-using XAct.Messages;
-using XAct;
+﻿using FyersApiClient.Request;
+using GCLibrary;
 
 
-namespace FyersApiByGc
+namespace FyersApiClient
 {
     public class Program
     {

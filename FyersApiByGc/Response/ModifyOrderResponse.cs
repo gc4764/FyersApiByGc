@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FyersApiByGc.Response
+namespace FyersApiClient.Response
 {
  
     public class ModifyOrderResponse
