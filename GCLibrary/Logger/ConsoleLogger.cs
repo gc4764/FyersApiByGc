@@ -8,6 +8,11 @@ namespace GCLibrary.Logger
 {
     public class ConsoleLogger : ILogger
     {
+        public void AttachLogger(ILog ilog)
+        {
+            ilog.SetLogger(this);
+        }
+
         public void Debug(string message)
         {
             ConsoleColor fc = Console.ForegroundColor;
@@ -74,7 +79,7 @@ namespace GCLibrary.Logger
             Console.ForegroundColor = fc;
         }
 
-        public void SetLogger(string loggerName)
+        public void SetLoggerName(string loggerName)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -105,10 +110,6 @@ namespace GCLibrary.Logger
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
         }
-
-        
-
-
 
 
     }

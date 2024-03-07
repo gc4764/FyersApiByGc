@@ -8,6 +8,11 @@ namespace GCLibrary.Logger
 {
     public class FileLogger : ILogger
     {
+        public void AttachLogger(ILog ilog)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Debug(string message)
         {
             throw new NotImplementedException();
@@ -41,6 +46,11 @@ namespace GCLibrary.Logger
         }
 
         public void SetLogger(string loggerName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetLoggerName(string loggerName)
         {
             throw new NotImplementedException();
         }

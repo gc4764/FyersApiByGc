@@ -8,7 +8,9 @@ namespace GCLibrary.Logger
 {
     public interface ILogger
     {
-        void SetLogger(string loggerName);
+        void SetLoggerName(string loggerName);
+
+        void AttachLogger(ILog ilog);
         void Info(string message);
         void Warn(string message);
         void Error(string message);
