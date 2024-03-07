@@ -13,6 +13,11 @@ namespace GCLibrary.Logger
             throw new NotImplementedException();
         }
 
+        public void AttachLogger(LogBase logBase)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Debug(string message)
         {
             throw new NotImplementedException();

@@ -13,6 +13,11 @@ namespace GCLibrary.Logger
             ilog.SetLogger(this);
         }
 
+        public void AttachLogger(LogBase logBase)
+        {
+            logBase.SetLogger(this);
+        }
+
         public void Debug(string message)
         {
             ConsoleColor fc = Console.ForegroundColor;

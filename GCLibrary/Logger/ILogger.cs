@@ -11,6 +11,7 @@ namespace GCLibrary.Logger
         void SetLoggerName(string loggerName);
 
         void AttachLogger(ILog ilog);
+        void AttachLogger(LogBase logBase);
         void Info(string message);
         void Warn(string message);
         void Error(string message);
