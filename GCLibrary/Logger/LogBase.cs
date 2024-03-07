@@ -8,7 +8,7 @@ namespace GCLibrary.Logger
 {
     public class LogBase
     {
-        private ILogger _logger = new ConsoleLogger();
+        protected ILogger _logger = new ConsoleLogger();
         public void SetLogger(ILogger logger)
         {
             _logger = logger;
