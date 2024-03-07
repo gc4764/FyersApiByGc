@@ -8,6 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="appConfig.json" />
+    <None Remove="mySetting.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mySetting.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FyersApiByGc\FyersApiClient.csproj" />
     <ProjectReference Include="..\GCLibrary\GCLibrary.csproj" />
     <ProjectReference Include="..\RMS\RMS.csproj" />

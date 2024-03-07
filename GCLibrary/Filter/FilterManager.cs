@@ -1,53 +1,53 @@
-﻿using GCLibrary.Filter;
-using GCLibrary.Interfaces;
-
-
-namespace GCLibrary.Filter
+﻿namespace GCLibrary.Filter
 {
 
-}
-public class FilterManager
-{
-    private static List<IFilter> _filters = [];
-    public static void Add( IFilter filter)
-    {
-        _filters.Add(filter);
-    }
 
-    public static bool Remove(IFilter filter)
+    public class FilterManager
     {
-        if (_filters.Contains(filter))
+        private List<IFilter> _filters = [];
+        public void Add(IFilter filter)
         {
-            _filters.Remove(filter);
-            return true;
+            _filters.Add(filter);
         }
-        return false;
-    }
 
-    public static List<IFilter> GetAll()
-    {
-        return _filters.ToList();
-    }
-
-    public static IFilter? Get(int index)
-    {
-        if( _filters.Count == 0 ) return null;
-        if ( index >= 0 && index <_filters.Count)
-            return _filters[index];
-        return null;
-    }
-
-    public static FilterResponse Use()
-    {
-        foreach (IFilter filter in _filters)
+        public bool Remove(IFilter filter)
         {
-            filter.RunFilter();
-            if (!filter.Result.Success) return filter.Result;
+            if (_filters.Contains(filter))
+            {
+                _filters.Remove(filter);
+                return true;
+            }
+            return false;
         }
-        FilterResponse result = new();
-        result.Success = true;
-        result.Message = "All filter run successfull";
-        result.Error = "";
-        return result;
+
+        public List<IFilter> GetAll()
+        {
+            return _filters.ToList();
+        }
+
+        public IFilter? Get(int index)
+        {
+            if (_filters.Count == 0) return null;
+            if (index >= 0 && index < _filters.Count)
+                return _filters[index];
+            return null;
+        }
+
+        public Response Use()
+        {
+            if (_filters.Count != 0)
+            {
+                foreach (IFilter filter in _filters)
+                {
+
+                    Response response = filter.RunFilter();
+
+                    if (!response.Success) return response;
+                }
+            }
+
+            Response result = Response.ResponseBuilder.SetSuccess("All filter run successfull");
+            return result;
+        }
     }
 }

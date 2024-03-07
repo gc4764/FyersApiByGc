@@ -10,42 +10,42 @@ using ApiBridge.Context.Broker;
 using System.Configuration.Assemblies;
 using System.Configuration;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
+using GCLibrary.Interfaces;
 
 namespace ApiBridge
 {
-    public class ApiBridge(IBrokerContext brokerContext, UserContext userCtx, bool IsLiveMode ,ILogger logger)
+    public class ApiBridge(IBrokerContext brokerContext, UserContext userCtx, ILogger logger)
     {
 
         protected IBrokerContext _brokerContext = brokerContext;
         protected UserContext _userCtx = userCtx;
         protected ILogger _logger = logger;
 
-        public void Run( RequestMessageContext cmd) 
+        public void Run( IRequestMessageContext cmd) 
         {
-            if (Validate(cmd))
+            IConfigurationRoot appConfig = new ConfigurationBuilder().AddJsonFile("appConfig.json").Build();
+            bool IsLiveMode = appConfig.GetValue<bool>("IsLiveMode");
+
+            if(IsLiveMode)    
             {
-                if(IsLiveMode)
-                {
-                    LiveTrade liveTrade = new(_brokerContext, _userCtx, _logger);
-                    liveTrade.Run(cmd);
-                }
-                else
-                {
-                    PaperTrade paperTrade = new();
-                    
-                }
+                FilterManager filterManager = new FilterManager();
+               
+                
+
+                LiveTrade liveTrade = new(_brokerContext, _userCtx, _logger);
+                liveTrade.Run(cmd);
             }
-           
-
-
             else
             {
-                return;
+                PaperTrade paperTrade = new();
+                    
             }
+         
 
         }
 
-        private bool Validate(RequestMessageContext cmd)
+        private bool Validate(IRequestMessageContext cmd)
         {
             _logger.Log(" cmd validation is successfull");
             return true;

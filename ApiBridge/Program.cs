@@ -1,5 +1,7 @@
 ﻿using GCLibrary.Logger;
 using GCLibrary.Interfaces;
+using Microsoft.Extensions.Configuration.Json;
+using Microsoft.Extensions.Configuration;
 
 
 namespace ApiBridge
@@ -18,7 +20,11 @@ namespace ApiBridge
 
             IRequestMessageContext cmd;
 
+            IConfigurationRoot cfg = new ConfigurationBuilder().AddJsonFile("mySetting.json").Build();
 
+            Console.WriteLine(cfg.GetValue<string>("fname"));
+            Console.WriteLine(cfg.GetValue <string>("lname"));
+            Console.WriteLine(cfg.GetValue<long>("mob:mob1"));
 
 
 

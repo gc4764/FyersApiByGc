@@ -1,5 +1,6 @@
 ﻿using ApiBridge.Context;
 using GCLibrary.Logger;
+using GCLibrary.Interfaces;
 
 namespace ApiBridge.Filter
 {
@@ -7,9 +8,9 @@ namespace ApiBridge.Filter
     {
         private UserContext _userContext;
         private ILogger _logger;
-        private RequestMessageContext _cmd;
+        private IRequestMessageContext _cmd;
 
-        public CheckWhiteList(UserContext userContext, ILogger logger, RequestMessageContext cmd)
+        public CheckWhiteList(UserContext userContext, ILogger logger, IRequestMessageContext cmd)
         {
             this._userContext = userContext;
             this._logger = logger;

@@ -826,7 +826,7 @@ namespace FyersApiClient
             Dictionary<string, string> headers = new()
             {
                 { "Authorization", $"{ClientId}:{AccessToken}" }
-            }
+            };
 
             var result = await request.GetByGcAsync(Routes.orderbook, null, headers);
 

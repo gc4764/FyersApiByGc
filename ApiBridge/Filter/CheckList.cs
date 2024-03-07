@@ -1,13 +1,14 @@
 ﻿using ApiBridge.Context;
 using GCLibrary.Logger;
+using GCLibrary.Interfaces;
 
 namespace ApiBridge.Filter
 {
-    public class CheckList(UserContext userContext, ILogger logger, RequestMessageContext cmd)
+    public class CheckList(UserContext userContext, ILogger logger, IRequestMessageContext cmd)
     {
         private readonly UserContext _userContext = userContext;
         private readonly ILogger _logger = logger;
-        private readonly RequestMessageContext _cmd = cmd;
+        private readonly IRequestMessageContext _cmd = cmd;
 
         public bool Validate()
         {
