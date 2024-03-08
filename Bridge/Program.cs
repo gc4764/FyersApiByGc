@@ -6,6 +6,7 @@ using ApiBridge.Filter;
 using ApiBridge.DummyClasses;
 using GCLibrary.Context;
 using Microsoft.EntityFrameworkCore;
+using Bridge.DummyClasses;
 
 
 namespace ApiBridge
@@ -46,7 +47,7 @@ namespace ApiBridge
 
             Response response = filterManager.Use();
 
-            if(response != null)
+            if (response != null)
             {
                 return;
             }
@@ -57,7 +58,7 @@ namespace ApiBridge
                 .SetLogger(logger)
                 .SetRequestMessageContext(requestMessageContext)
                 .SetBrokerContext(brokerContext)
-                .SetUserContext(userContext);  
+                .SetUserContext(userContext);
 
             orderManagement.FireOrder();
 

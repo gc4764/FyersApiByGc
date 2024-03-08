@@ -1,9 +1,9 @@
-﻿using ApiBridge.Context;
+﻿using Bridge.Context;
 using GCLibrary.Logger;
 using GCLibrary.Filter;
 using GCLibrary.Context;
 
-namespace ApiBridge.Filter
+namespace Bridge.Filter
 {
     internal class BlackListFilter : IFilter, IBrokerContextConsumer, IUserContext, IRequestMessageContextProducer
     {

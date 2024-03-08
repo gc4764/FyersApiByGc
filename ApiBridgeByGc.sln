@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FyersApiClient", "FyersApiB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMS", "RMS\RMS.csproj", "{EA386DD3-482C-412C-A74D-56F4D0CBA5A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiBridge", "ApiBridge\ApiBridge.csproj", "{5CFA5FFC-967B-4449-9D25-81940B1B7B21}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{AFD22AF2-4E96-4539-A845-1BFE58A37B21}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GCLibrary", "GCLibrary\GCLibrary.csproj", "{13E37456-7A90-47F9-89CB-3842ADC514F5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{3DDAF552-B43D-42FB-9FC0-19C75AD67C29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bridge", "Bridge\Bridge.csproj", "{2C88BB69-3589-45CD-9243-CA4F020B96C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{EA386DD3-482C-412C-A74D-56F4D0CBA5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA386DD3-482C-412C-A74D-56F4D0CBA5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA386DD3-482C-412C-A74D-56F4D0CBA5A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CFA5FFC-967B-4449-9D25-81940B1B7B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CFA5FFC-967B-4449-9D25-81940B1B7B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CFA5FFC-967B-4449-9D25-81940B1B7B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CFA5FFC-967B-4449-9D25-81940B1B7B21}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AFD22AF2-4E96-4539-A845-1BFE58A37B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AFD22AF2-4E96-4539-A845-1BFE58A37B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFD22AF2-4E96-4539-A845-1BFE58A37B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{3DDAF552-B43D-42FB-9FC0-19C75AD67C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DDAF552-B43D-42FB-9FC0-19C75AD67C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DDAF552-B43D-42FB-9FC0-19C75AD67C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C88BB69-3589-45CD-9243-CA4F020B96C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C88BB69-3589-45CD-9243-CA4F020B96C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C88BB69-3589-45CD-9243-CA4F020B96C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C88BB69-3589-45CD-9243-CA4F020B96C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
