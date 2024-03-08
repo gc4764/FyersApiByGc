@@ -2,6 +2,7 @@
 
 using Test;
 using GCLibrary.Filter;
+using GCLibrary.Logger;
 
 Console.WriteLine("Hello, World!");
 
@@ -32,7 +33,10 @@ FilterManager filterManager = new();
 filterManager.Add(filter1);
 filterManager.Add(filter5);
 filterManager.Add(filter3);
+
 filterManager.Add(filter2);
+filterManager.Logger = new BlankLogger();
+
 filterManager.Add(filter4);
 Response result= filterManager.Use();
 

@@ -2,19 +2,20 @@
 using GCLibrary.Filter;
 namespace Test
 {
-    public class Filter(int a, int b, string name) : FilterBase(name) ,IFilter, ILog
+    public class Filter(int a, int b, string name) : FilterBase(name) ,IFilter, ILogConsumer
     {
         private readonly int A = a;
         private readonly int B = b;
         /*private string _name = name.ToUpper();*/
-        private  ILogger _logger = new ConsoleLogger();
+        private  IGCLogger _logger = new ConsoleLogger();
 
 
         public string Name { get { return _name; } set { _name = value.ToUpper(); } }
 
+        public IGCLogger Logger { get { return _logger; } set { _logger = value; }  }
+
         public Response RunFilter()
         {
-            Console.WriteLine();
             bool resp = A > B;
 
            
@@ -23,9 +24,6 @@ namespace Test
 
         }
 
-        public void SetLogger(ILogger logger)
-        {
-            _logger = logger;
-        }
+      
     }
 }

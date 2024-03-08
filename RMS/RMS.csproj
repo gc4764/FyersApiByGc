@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Broker\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GCLibrary\GCLibrary.csproj" />
   </ItemGroup>
 

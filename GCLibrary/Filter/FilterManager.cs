@@ -1,12 +1,30 @@
-﻿namespace GCLibrary.Filter
+﻿using GCLibrary.Logger;
+using System.Threading.Channels;
+
+namespace GCLibrary.Filter
 {
 
 
-    public class FilterManager
+    public class FilterManager : ILogConsumer
     {
+
+        private IGCLogger _logger = new ConsoleLogger();
+        
+        public IGCLogger Logger { get { return _logger; } set { _logger = value; } } 
+    
+      
         private List<IFilter> _filters = [];
+        public FilterManager()
+        {
+            _logger.Info("Filter Manager is running");
+            Console.WriteLine();
+
+        }
+
         public void Add(IFilter filter)
         {
+            int count = _filters.Count + 1;
+            _logger.Info($"Adding Filter {count}");
             _filters.Add(filter);
         }
 
@@ -35,11 +53,14 @@
 
         public Response Use()
         {
+            Console.WriteLine();
             if (_filters.Count != 0)
             {
+                int count = 0;
                 foreach (IFilter filter in _filters)
                 {
-
+                    count++;
+                    _logger.Info($" running Filter {count}");
                     Response response = filter.RunFilter();
 
                     if (!response.Success) return response;

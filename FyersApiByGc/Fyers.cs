@@ -36,7 +36,7 @@ namespace FyersApiClient
         bool offlineOrder,
         int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -82,7 +82,7 @@ namespace FyersApiClient
            bool offlineOrder,
            int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -129,7 +129,7 @@ namespace FyersApiClient
         bool offlineOrder,
         int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -174,7 +174,7 @@ namespace FyersApiClient
            bool offlineOrder,
            int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -222,7 +222,7 @@ namespace FyersApiClient
         bool offlineOrder,
         int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -268,7 +268,7 @@ namespace FyersApiClient
            bool offlineOrder,
            int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -317,7 +317,7 @@ namespace FyersApiClient
         bool offlineOrder,
         int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -364,7 +364,7 @@ namespace FyersApiClient
            bool offlineOrder,
            int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -416,7 +416,7 @@ namespace FyersApiClient
           bool offlineOrder,
           int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -464,7 +464,7 @@ namespace FyersApiClient
            bool offlineOrder,
            int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -499,7 +499,7 @@ namespace FyersApiClient
 
         public async Task<string?> ModifyOrder(ModifyOrderRequest data_object)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -523,7 +523,7 @@ namespace FyersApiClient
           decimal stopPrice
             )
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -553,7 +553,7 @@ namespace FyersApiClient
 
         public async Task<string?> CancellOrder(string id)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -577,7 +577,7 @@ namespace FyersApiClient
 
         public async Task<string?> ExitAllOpenPosition()
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -598,7 +598,7 @@ namespace FyersApiClient
 
         public async Task<string?> ExitPositionBySymbolId(string exchange, string symbol, string series, ProductType type)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -619,7 +619,7 @@ namespace FyersApiClient
 
         public async Task<string?> ExitPositionByProductType(List<string> productTypes)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -640,7 +640,7 @@ namespace FyersApiClient
 
         public async Task<string?> ExitPositionBySegments(List<int> segments)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -660,7 +660,7 @@ namespace FyersApiClient
 
         public async Task<string?> ExitPositionBySides(List<int> sides)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -680,7 +680,7 @@ namespace FyersApiClient
 
         public async Task<string?> ExitPositionBySegmentsSidesAndProductType(List<int> segments, List<int> sides, List<string> types)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -702,7 +702,7 @@ namespace FyersApiClient
 
         public async Task<string?> CancellOrder(CancellOrderRequest data_object)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -731,7 +731,7 @@ namespace FyersApiClient
             bool offlineOrder,
             int disclosedQty)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -766,7 +766,7 @@ namespace FyersApiClient
 
         public async Task<string?> PlaceOrder(OrderRequest data_object)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -804,7 +804,7 @@ namespace FyersApiClient
   */
         public async Task<string?> TradeBookByTag(string orderTag)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -826,7 +826,7 @@ namespace FyersApiClient
 
         public async Task<string?> TradeBook()
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -843,7 +843,7 @@ namespace FyersApiClient
 
         public async Task<string?> Positions()
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -861,7 +861,7 @@ namespace FyersApiClient
         */
         public async Task<string?> OrderBook(string orderId)
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -882,7 +882,7 @@ namespace FyersApiClient
         }
         public async Task<string?> OrderBook()
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -899,7 +899,7 @@ namespace FyersApiClient
 
         public async Task<string?> Holdings()
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -916,7 +916,7 @@ namespace FyersApiClient
 
         public async Task<string?> Funds()
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new()
             {
@@ -934,7 +934,7 @@ namespace FyersApiClient
 
         public async Task<string?> Profile()
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
             // Dictionary<string, string> headers = AuthHeader();
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("Authorization", $"{ClientId}:{AccessToken}");
@@ -984,7 +984,7 @@ namespace FyersApiClient
 
         public async Task<string?> GetAccessTokenFromAuthCodeAsync()
         {
-            HttpRequest request = new(BaseAddress, TimeOut);
+            HttpRequestByGc request = new(BaseAddress, TimeOut);
 
             string? result;
 

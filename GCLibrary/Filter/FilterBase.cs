@@ -19,7 +19,7 @@ namespace GCLibrary.Filter
         protected Response GenerateResult(bool resp)
         {
 
-            ILogger _logger = new ConsoleLogger();
+            IGCLogger _logger = new ConsoleLogger();
             Response response;
 
             if (resp)

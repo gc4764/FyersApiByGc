@@ -6,17 +6,9 @@ using System.Threading.Tasks;
 
 namespace GCLibrary.Logger
 {
-    public class FileLogger : ILogger
+    public class FileLogger : IGCLogger
     {
-        public void AttachLogger(ILog ilog)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AttachLogger(LogBase logBase)
-        {
-            throw new NotImplementedException();
-        }
+        public IGCLogger Logger { get { return this; }  set { _ = this; } }
 
         public void Debug(string message)
         {

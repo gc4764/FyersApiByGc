@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace GCLibrary.Logger
 {
-    public class ConsoleLogger : ILogger
+    public class ConsoleLogger : IGCLogger
     {
-        public void AttachLogger(ILog ilog)
-        {
-            ilog.SetLogger(this);
-        }
-
-        public void AttachLogger(LogBase logBase)
-        {
-            logBase.SetLogger(this);
-        }
+ 
+        public  IGCLogger Logger { get { return this; } set { _ = this; } }
 
         public void Debug(string message)
         {
