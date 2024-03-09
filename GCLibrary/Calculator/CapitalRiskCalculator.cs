@@ -4,19 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMS
+namespace GCLibrary.Calculator
 {
-    public class Risk
+    public class CapitalRiskCalculator
     {
+
         protected decimal _capital;
         protected decimal _riskPercent;
+
+        protected int _maxOpenPosition;
+        protected decimal _maxRiskPerTrade;
+
 
         protected decimal _riskAmount;
         protected decimal _minimumRiskAmount;
         protected decimal _maximumRiskAmount;
         protected string? _note;
 
-        public Risk(decimal capital, decimal riskPercent, decimal minimumRiskAmount, decimal maximumRiskAmount, string? note)
+        public CapitalRiskCalculator(decimal capital, decimal riskPercent, decimal minimumRiskAmount, decimal maximumRiskAmount, string? note)
         {
             _capital = capital;
             _riskPercent = riskPercent;
@@ -26,6 +31,9 @@ namespace RMS
             SetRiskAmount(ref _riskAmount);
         }
 
+        public int MaxOpenPosition { get { return _maxOpenPosition; } set { _maxOpenPosition = value; } }
+
+        public decimal MaxRiskPerTrade { get { return _maxRiskPerTrade; } set { _maxRiskPerTrade = value; } }
         private void SetRiskAmount(ref decimal _riskAmount)
         {
             decimal _risk = _capital * RiskPercent / 1000;
@@ -33,17 +41,20 @@ namespace RMS
             else if (_risk > _maximumRiskAmount) _riskAmount = _maximumRiskAmount;
             else _riskAmount = _risk;
         }
-        public decimal Capital { get
+        public decimal Capital
+        {
+            get
             {
                 return _capital;
             }
             set
             {
                 _capital = value;
-                SetRiskAmount(ref _riskAmount); 
-            } }
+                SetRiskAmount(ref _riskAmount);
+            }
+        }
 
-        
+
         public decimal RiskPercent
         {
             get
@@ -57,7 +68,7 @@ namespace RMS
             }
         }
 
-        public decimal MinimumRiskAmount 
+        public decimal MinimumRiskAmount
         {
             get
             {
@@ -69,7 +80,7 @@ namespace RMS
                 _minimumRiskAmount = value;
                 SetRiskAmount(ref _riskAmount);
 
-            } 
+            }
         }
 
         public decimal MaximumRiskAmount
@@ -83,7 +94,7 @@ namespace RMS
                 _maximumRiskAmount = value;
                 SetRiskAmount(ref _riskAmount);
 
-            } 
+            }
         }
 
 
@@ -94,14 +105,17 @@ namespace RMS
                 return _riskAmount;
             }
         }
-        public string? Note { get
+        public string? Note
+        {
+            get
             {
                 return _note;
-            } set
+            }
+            set
             {
                 _note = value;
 
-            } 
+            }
         }
     }
 }

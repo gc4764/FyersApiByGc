@@ -5,9 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("/api/Trade")]
-    public class OrderController : ControllerBase
-
+    [Route("/fyers/Trade")]
+    public class FyersTradeController : ControllerBase
     {
         [HttpGet("")]
         public object GetTrades()
@@ -18,7 +17,7 @@ namespace Api.Controllers
         [HttpGet("{id}")]
         public object GetTradeById(int id)
         {
-            return new { name = "Guddu Chauhan", mob = 9451004764, ID = id };
+            return new { name = "Guddu Chauhan", mob = 9451004764, ID=id };
         }
 
         [HttpPost("")]

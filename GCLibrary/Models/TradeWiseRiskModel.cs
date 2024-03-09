@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GCLibrary.Context
+namespace GCLibrary.Models
 {
-    public interface IUserContext
+    public class TradeWiseRiskModel
     {
-        
     }
 }

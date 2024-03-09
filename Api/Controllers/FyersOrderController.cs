@@ -5,19 +5,22 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("/api/Trade")]
-    public class PositionController : ControllerBase
+    [Route("/fyers/Trade")]
+    public class FyersOrderController : ControllerBase
+
     {
         [HttpGet("")]
-        public object GetTrades()
+        public IActionResult GetTrades([FromBody] int id, [FromHeader] string user_id)
         {
-            return new { name = "Guddu Chauhan", mob = 9451004764 };
+            var data = new { name = "Guddu Chauhan", mob = 9451004764 };
+            return Ok(data);
         }
 
         [HttpGet("{id}")]
-        public object GetTradeById(int id)
+        public IActionResult GetTradeById(int id)
         {
-            return new { name = "Guddu Chauhan", mob = 9451004764, ID=id };
+            var data = new { name = "Guddu Chauhan", mob = 9451004764, ID = id };
+            return Ok(data);
         }
 
         [HttpPost("")]

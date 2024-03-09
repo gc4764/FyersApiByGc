@@ -1,23 +1,24 @@
 ﻿using GCLibrary.Logger;
-using ApiBridge.DummyClasses;
 using GCLibrary.Context;
 using GCLibrary.Http;
+using GCLibrary.Position;
+using GCLibrary.Models;
 
 namespace ApiBridge
 {
     public class OrderManagement
     {
+        private UserContextModel _userContextModel;
         private IGCLogger _logger = new ConsoleLogger();
-        private BrokerContext _brokerContext = new();
-        private UserContext _userContext = new();
-        private RequestMessageContext _requestMessageContext = new();
+       
+        private ICommandContext _commandContext = new CommandModel();
 
         public void FireOrder()
         {
-            if (_requestMessageContext != null)
+            if (_commandContext != null)
             {
-                if (_requestMessageContext.OrderType == "LE") PlaceBuyOrder();
-                else if (_requestMessageContext.OrderType == "SE") PlaceSellOrder();
+                if (_commandContext.GetOrderType() == "LE") PlaceBuyOrder();
+                else if (_commandContext.GetOrderType() == "SE") PlaceSellOrder();
                 else LogOrderError();
             }
 
@@ -35,25 +36,20 @@ namespace ApiBridge
 
         private void PlaceBuyOrder()
         {
-            HttpRequestByGc httpRequestByGc = new(_brokerContext.BaseUrl, 7);
-            httpRequestByGc.PostByGcAsync()
+           
+           
         }
 
-        public OrderManagement SetUserContext(UserContext userContext)
+        public OrderManagement SetUserContextModel(UserContextModel userContextModel)
         {
-            _userContext = userContext;
+            _userContextModel = userContextModel;
             return this;
         }
 
-        public OrderManagement SetBrokerContext(BrokerContext brokerContext)
+  
+        public OrderManagement SetRequestMessageContext(ICommandContext commandContext)
         {
-            _brokerContext = brokerContext;
-            return this;
-        }
-
-        public OrderManagement SetRequestMessageContext(RequestMessageContext requestMessageContext)
-        {
-            _requestMessageContext = requestMessageContext;
+            _commandContext = commandContext;
             return this;
         }
 
@@ -63,10 +59,11 @@ namespace ApiBridge
             return this;
         }
 
-        public ILogger Logger { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IGCLogger Logger { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 
         Position position = new Position();
+        
 
         /* public string FireOrder(IRequestMessageContext cmd)
          {

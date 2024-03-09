@@ -1,6 +1,6 @@
 ﻿using GCLibrary.Logger;
 using GCLibrary.Interfaces;
-using GCLibrary.Context;
+using GCLibrary.Models;
 
 
 
@@ -23,8 +23,8 @@ namespace GCLibrary.Position
         protected BrokerContext _brokerContext;
         protected UserContext _userContext;
         protected IGCLogger _logger;
-        protected RequestMessageContext _requestMessageContext;
-        public Position(BrokerContext brokerContext, UserContext userContext, IGCLogger logger, RequestMessageContext requestMessageContext)
+        protected CommandModel _requestMessageContext;
+        public Position(BrokerContext brokerContext, UserContext userContext, IGCLogger logger, CommandModel requestMessageContext)
         {
             _brokerContext = brokerContext;
             _userContext = userContext;

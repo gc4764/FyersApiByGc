@@ -4,15 +4,14 @@ using System.Threading.Channels;
 namespace GCLibrary.Filter
 {
 
-
     public class FilterManager : ILogConsumer
     {
 
         private IGCLogger _logger = new ConsoleLogger();
-        
-        public IGCLogger Logger { get { return _logger; } set { _logger = value; } } 
-    
-      
+
+        public IGCLogger Logger { get { return _logger; } set { _logger = value; } }
+
+
         private List<IFilter> _filters = [];
         public FilterManager()
         {
@@ -21,11 +20,12 @@ namespace GCLibrary.Filter
 
         }
 
-        public void Add(IFilter filter)
+        public FilterManager Add(IFilter filter)
         {
             int count = _filters.Count + 1;
             _logger.Info($"Adding Filter {count}");
             _filters.Add(filter);
+            return this;
         }
 
         public bool Remove(IFilter filter)
@@ -51,7 +51,7 @@ namespace GCLibrary.Filter
             return null;
         }
 
-        public Response Use()
+        public Response Filter()
         {
             Console.WriteLine();
             if (_filters.Count != 0)

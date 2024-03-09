@@ -26,7 +26,7 @@ namespace GCLibrary.Filter
             }
             public static Response SetError(string error)
             {
-                Response response= new(false, "",error);
+                Response response = new(false, "", error);
                 return response;
             }
         }
@@ -36,6 +36,7 @@ namespace GCLibrary.Filter
         public string Error { get; private set; } = string.Empty;
 
 
-      
+
     }
+   
 }

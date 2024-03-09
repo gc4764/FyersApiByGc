@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("/api/user")]
-    public class UserController : ControllerBase
+    [Route("/fyers/user")]
+    public class FyersUserController : ControllerBase
     {
         [HttpPost("register")]
         public object Register()

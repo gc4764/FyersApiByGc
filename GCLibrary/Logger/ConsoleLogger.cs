@@ -11,7 +11,7 @@ namespace GCLibrary.Logger
  
         public  IGCLogger Logger { get { return this; } set { _ = this; } }
 
-        public void Debug(string message)
+        public IGCLogger Debug(object message)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -20,9 +20,10 @@ namespace GCLibrary.Logger
             Console.WriteLine($"Debug : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
+            return this;    
         }
 
-        public void Error(string message)
+        public IGCLogger Error(object message)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -31,9 +32,10 @@ namespace GCLibrary.Logger
             Console.WriteLine($"Error : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
+            return this;
         }
 
-        public void Fatal(string message)
+        public IGCLogger Fatal(object message)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -42,9 +44,10 @@ namespace GCLibrary.Logger
             Console.WriteLine($"Fatal : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
+            return this;
         }
 
-        public void Fatal(string message, Exception exception)
+        public IGCLogger Fatal(object message, Exception exception)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -53,9 +56,10 @@ namespace GCLibrary.Logger
             Console.WriteLine($"Fatal : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
+            return this;
         }
 
-        public void Info(string message)
+        public IGCLogger Info(object message)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -64,9 +68,10 @@ namespace GCLibrary.Logger
             Console.WriteLine($"Info : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
+            return this ;
         }
 
-        public void Log(string message)
+        public IGCLogger Log(object message)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -75,9 +80,10 @@ namespace GCLibrary.Logger
             Console.WriteLine($"Log : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
+            return this ;
         }
 
-        public void SetLoggerName(string loggerName)
+        public IGCLogger SetLoggerName(string loggerName)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -86,9 +92,10 @@ namespace GCLibrary.Logger
             Console.WriteLine(loggerName);
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
+            return this;    
         }
 
-        public void TestLogger()
+        public IGCLogger TestLogger()
         {
             Log("Hello Guddu log");
             Info("Hello Guddu info");
@@ -96,9 +103,10 @@ namespace GCLibrary.Logger
             Error("Hello Guddu error");
             Fatal("Hello Guddu fatal");
             Warn("Hello Guddu warn");
+            return this;
         }
 
-        public void Warn(string message)
+        public IGCLogger Warn(object message)
         {
             ConsoleColor fc = Console.ForegroundColor;
             ConsoleColor bc = Console.BackgroundColor;
@@ -107,6 +115,7 @@ namespace GCLibrary.Logger
             Console.WriteLine($"Warn : {message}");
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
+                return this;
         }
 
 

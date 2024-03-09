@@ -8,18 +8,18 @@ namespace GCLibrary.Logger
 {
     public interface IGCLogger
     {
-        void SetLoggerName(string loggerName);
+        IGCLogger SetLoggerName(string loggerName);
 
         IGCLogger Logger { get; set; }
-        
-        void Info(string message);
-        void Warn(string message);
-        void Error(string message);
-        void Fatal(string message);
-        void Debug(string message);
-        void Fatal(string message, Exception exception);
-        void Log(string message);
 
-        void TestLogger();
+        IGCLogger Info(object message);
+        IGCLogger Warn(object message);
+        IGCLogger Error(object message);
+        IGCLogger Fatal(object message);
+        IGCLogger Debug(object message);
+        IGCLogger Fatal(object message, Exception exception);
+        IGCLogger Log(object message);
+
+        IGCLogger TestLogger();
     }
 }

@@ -1,44 +1,31 @@
-﻿
-
-using Test;
-using GCLibrary.Filter;
+﻿using GCLibrary.Filter;
 using GCLibrary.Logger;
 
 Console.WriteLine("Hello, World!");
 
-/*App app = new();*/
-
-/*app.Service.Add("whitelist");
-
-app.Filter.Add("whiltelistvalidationObj", "wlv");
-app.Filter.Add("whiltelistvalidationObj", "blv");
-app.Filter.Add("whiltelistvalidationObj", "gv");
 
 
 
-app.use("wlv");
-app.use("wlv");
-app.use("wlv");
-app.use("wlv");*/
+/*
 
-IFilter filter1 = new Filter(9, 1, "f1");
-IFilter filter2 = new Filter(9, 2, "f2");
-IFilter filter3 = new Filter(9, 10, "f3");
-IFilter filter4 = new Filter(9, 4, "f4");
-IFilter filter5 = new Filter(9, 5, "f5");
+IFilter filter1 = new FilterImpl(9, 1, "f1");
+IFilter filter2 = new FilterImpl(9, 2, "f2");
+IFilter filter3 = new FilterImpl(9, 10, "f3");
+IFilter filter4 = new FilterImpl(9, 4, "f4");
+IFilter filter5 = new FilterImpl(9, 5, "f5");
 
 FilterManager filterManager = new();
 
 
-filterManager.Add(filter1);
-filterManager.Add(filter5);
-filterManager.Add(filter3);
+Response result = filterManager
+    .Add(filter1)
+    .Add(filter2)
+    .Add(filter5)
+    .Add(filter3)
+    .Add(filter4)
+    .Filter();
 
-filterManager.Add(filter2);
-filterManager.Logger = new BlankLogger();
-
-filterManager.Add(filter4);
-Response result= filterManager.Use();
+//result= filterManager.Filter();
 
 if (result == null)
 {
@@ -53,4 +40,6 @@ else if (result.Success)
 else
 {
     Console.WriteLine(result.Error);
-}
+}*/
+
+

@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("/api/Trade")]
-    public class TradeController : ControllerBase
+    [Route("/fyers/Trade")]
+    public class FyersPositionController : ControllerBase
     {
         [HttpGet("")]
         public object GetTrades()
